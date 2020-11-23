@@ -160,8 +160,6 @@ _Estos fueron los servicios utilizados en la parte de aws:_
 
 ## Autores ✒️
 
-_Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
-
 * **Arcangel Marin** - *Desarrollo* - *Documentación* -  [ArcangelM](https://github.com/ArcangelM)
 * **Equipo Antivirus para la deserción**
 

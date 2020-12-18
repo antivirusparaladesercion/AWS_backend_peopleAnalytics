@@ -146,6 +146,13 @@ _Para para implementarla sedebe crear un nuevo metodo "**Post**" y expecificarle
 _Para desplegar la solución es necesario que todos los servicios usados esten encendidos, como lo es el caso del endpoint del modelo, y los buckets S3
 Previamente creados._
 
+_El proyecto se desplegó usando AWS CodePipeline para CI/CD. El front se publicó con buckets de s3 y el backend se publicó como una instancia de NodeJS en AWS ElasticBeanstalk_
+
+_**Frontend**: Se creó un bucket en AWS S3, el cual se llama frontend-antivirus-prod, el cual se habilitó como público y se le habilitó la opción para alojar sitios web estáticos. En este se alojan los estáticos de la página._
+_Se crea un flujo de trabajo en CodePipeline llamado "CiCD-frontend-antivirus-prod" En el cual se configura como source: Github, apuntando a este repositorio, para esto es necesario tener acceso al proyecto como administrador. En la etapa de Build, se configura a AWS CodeBuild como proveedor de compilación y se crea un proyecto de compilación nuevo, este usa una máquina con Linux AWS en su ultima versión. y En la etapa de deploy se selecciona el bucket de S3 creado con anterioridad para hacer el deploy_
+
+_**Backend**: Para este se crean un flujo de trabajo en CodePipeline llamado "CiCD-backend-antivirus-dev", en el cual se configura como fuente, el repositorio backend_peopleAnalytics. Para la etapa de deploy es necesario haber creado previamente una instancia de AWS Elastic Beanstalk configurada con NodeJS en su versión 12, y con un código de muestra. Para así al momento de seleccionar una instancia de Beanstalk, hacerlo con la que se tenía ya creada.  En este no hay etapa de compilación. Una vez terminado el proceso, este arroja el Endpoint al cual se deben hacer las peticiones HTTP._
+
 ## Construido con 🛠️
 
 _Estos fueron los servicios utilizados en la parte de aws:_
@@ -155,7 +162,9 @@ _Estos fueron los servicios utilizados en la parte de aws:_
 * [AWS S3](https://docs.aws.amazon.com/es_es/s3/?id=docs_gateway) - Almacenamiento.
 * [API Gateway](https://docs.aws.amazon.com/es_es/apigateway/?id=docs_gateway) - Creación de API.
 * [AWS SES](https://docs.aws.amazon.com/es_es/ses/?id=docs_gateway) - Servicio de Email Simple.
-
+* [AWS CodePipeline](https://aws.amazon.com/es/codepipeline/) - Automatización de Pipelines de entrega continua.
+* [AWS Elastic Beanstalk](https://aws.amazon.com/es/elasticbeanstalk/) - Servicio de PaaS.
+* [AWS CodeBuild](https://aws.amazon.com/es/codebuild/) - Compilación de código con escalado continuo.
 
 
 ## Autores ✒️

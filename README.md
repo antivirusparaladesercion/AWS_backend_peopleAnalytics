@@ -1,4 +1,4 @@
-# BACKEND AWS - PEOPLEANALITYCS
+# BACKEND AWS - PEOPLEANALYTICS
 
 _Documentación de los procesos mas relevantes y del codigo generado en la parte del backend en AWS para el proyecto de desercion universitaria
 usando tecnicas de peopleAnalytics_
